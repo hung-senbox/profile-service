@@ -34,3 +34,83 @@ func (h *OwnerCodeHandler) GenerateStudentCode(c *gin.Context) {
 
 	helper.SendSuccess(c, http.StatusCreated, "Success", res)
 }
+
+func (h *OwnerCodeHandler) GenerateTeacherCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateTeacherCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}
+
+func (h *OwnerCodeHandler) GenerateStaffCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateStaffCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}
+
+func (h *OwnerCodeHandler) GenerateParentCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateParentCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}
+
+func (h *OwnerCodeHandler) GenerateUserCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateUserCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}
+
+func (h *OwnerCodeHandler) GenerateChildCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateChildCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}

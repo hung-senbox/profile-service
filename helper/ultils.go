@@ -47,3 +47,11 @@ func GenerateStaffCode(createdIndex int) string {
 func GenerateParentCode(createdIndex int) string {
 	return "O.P." + strconv.Itoa(createdIndex)
 }
+
+func GenerateUserCode(createdIndex int) string {
+	return "UR." + strconv.Itoa(createdIndex)
+}
+
+func GenerateChildCode(CreatedIndex int) string {
+	return "C." + strconv.Itoa(CreatedIndex)
+}

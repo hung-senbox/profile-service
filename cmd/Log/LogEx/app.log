@@ -983,3 +983,14 @@
   "msg": "get terms by orgID failed: %!w(\u003cnil\u003e)",
   "time": "2025-10-23T16:45:29+07:00"
 }
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/admin/profiles/owner-code/student/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "write exception: write errors: [E11000 duplicate key error collection: profile_service.owner_code index: _id_ dup key: { _id: ObjectId('000000000000000000000000') }]",
+  "time": "2025-10-27T10:53:03+07:00"
+}
