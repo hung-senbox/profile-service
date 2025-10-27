@@ -135,3 +135,15 @@ const (
 	HolidayType MessageLangType = "holiday"
 	TermType    MessageLangType = "term"
 )
+
+type OwnerRoles string
+
+const (
+	UserRole         OwnerRoles = "user"
+	OrganizationRole OwnerRoles = "organization"
+	TeacherRole      OwnerRoles = "teacher"
+	StaffRole        OwnerRoles = "staff"
+	StudentRole      OwnerRoles = "student"
+	ChildRole        OwnerRoles = "child"
+	ParentRole       OwnerRoles = "parent"
+)

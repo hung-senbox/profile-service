@@ -52,7 +52,7 @@ func main() {
 	cacheClientRedis := db.InitRedisCache()
 	defer cacheClientRedis.Close()
 
-	r := router.SetupRouter(consulClient, cacheClientRedis, db.TermCollection, db.HolidayCollection)
+	r := router.SetupRouter(consulClient, cacheClientRedis, db.OwnerCodeCollection)
 	port := cfg.Server.Port
 	if err := r.Run(":" + port); err != nil {
 		log.Fatal("Failed to run server:", err)

@@ -31,3 +31,19 @@ func GetUserID(ctx context.Context) string {
 	}
 	return ""
 }
+
+func GenerateStudentCode(createdIndex int) string {
+	return "O.St." + strconv.Itoa(createdIndex)
+}
+
+func GenerateTeacherCode(createdIndex int) string {
+	return "O.Tr." + strconv.Itoa(createdIndex)
+}
+
+func GenerateStaffCode(createdIndex int) string {
+	return "O.Sf." + strconv.Itoa(createdIndex)
+}
+
+func GenerateParentCode(createdIndex int) string {
+	return "O.P." + strconv.Itoa(createdIndex)
+}
