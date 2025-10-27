@@ -10,10 +10,10 @@ import (
 
 func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, userGw gateway.UserGateway) {
 	// Admin routes
-	adminGroup := r.Group("/api/v1/admin")
-	adminGroup.Use(middleware.Secured(userGw))
+	gatewayGroup := r.Group("/api/v1/gateway")
+	gatewayGroup.Use(middleware.Secured(userGw))
 	{
-		profilesAdmin := adminGroup.Group("/profiles")
+		profilesAdmin := gatewayGroup.Group("/profiles")
 		{
 			// owner code routes
 			ownerCode := profilesAdmin.Group("/owner-code")
@@ -24,6 +24,13 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, userGw g
 				ownerCode.POST("/parent/generate", ho.GenerateParentCode)
 				ownerCode.POST("/user/generate", ho.GenerateUserCode)
 				ownerCode.POST("/child/generate", ho.GenerateChildCode)
+
+				ownerCode.GET("/student/:student_id", ho.GetStudentCode)
+				ownerCode.GET("/teacher/:teacher_id", ho.GetTeacherCode)
+				ownerCode.GET("/staff/:staff_id", ho.GetStaffCode)
+				ownerCode.GET("/parent/:parent_id", ho.GetParentCode)
+				ownerCode.GET("/user/:user_id", ho.GetUserCode)
+				ownerCode.GET("/child/:child_id", ho.GetChildCode)
 			}
 		}
 	}

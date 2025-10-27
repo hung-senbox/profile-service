@@ -49,7 +49,7 @@ services:
       dockerfile: Dockerfile
     container_name: profile-service
     ports:
-      - "8009:8009"
+      - "8022:8022"
     depends_on:
       - term_db
       - consul

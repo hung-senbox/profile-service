@@ -35,9 +35,10 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *goredis.Client, own
 
 	// usecase
 	generateOwnerCodeUseCase := usecase.NewGenerateOwnerCodeUseCase(ownerCodeRepository)
+	getOwnerCodeUseCase := usecase.NewGetOwnerCodeUseCase(ownerCodeRepository)
 
 	// service
-	onwerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, cachedUserGateway, generateOwnerCodeUseCase)
+	onwerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, cachedUserGateway, generateOwnerCodeUseCase, getOwnerCodeUseCase)
 
 	// handler
 	ownerCodeHandler := handler.NewOwnerCodeHandler(onwerCodeService)
