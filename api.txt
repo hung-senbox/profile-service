@@ -1,6 +1,12 @@
 Terms
-GET     /api/v1/terms
-GET     /api/v1/terms/:id
-POST    /api/v1/terms
-PUT     /api/v1/terms/:id
+POST    /api/v1/gateway/profiles//owner-code/student/generate
+POST    /api/v1/gateway/profiles//owner-code/teacher/generate
+POST    /api/v1/gateway/profiles//owner-code/staff/generate
+POST    /api/v1/gateway/profiles//owner-code/user/generate
+POST    /api/v1/gateway/profiles//owner-code/child/generate
 
+GET     /api/v1/gateway/profiles//owner-code/student/{student_id}
+GET     /api/v1/gateway/profiles//owner-code/teacher/{teacher_id}
+GET     /api/v1/gateway/profiles//owner-code/staff/{staff_id}
+GET     /api/v1/gateway/profiles//owner-code/user/{user_id}
+GET     /api/v1/gateway/profiles//owner-code/child/{child_id}
