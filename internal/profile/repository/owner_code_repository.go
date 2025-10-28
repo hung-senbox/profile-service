@@ -57,9 +57,6 @@ func (r *ownerCodeRepository) FindByOwnerIDAndRole(ctx context.Context, ownerID 
 	var ownerCode model.OwnerCode
 	err := r.collection.FindOne(ctx, filter).Decode(&ownerCode)
 	if err != nil {
-		if err == mongo.ErrNoDocuments {
-			return nil, nil
-		}
 		return nil, err
 	}
 
