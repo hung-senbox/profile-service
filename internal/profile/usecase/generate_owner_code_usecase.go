@@ -3,6 +3,7 @@ package usecase
 import (
 	"context"
 	"profile-service/helper"
+	"profile-service/internal/cache/caching"
 	"profile-service/internal/profile/model"
 	"profile-service/internal/profile/repository"
 	"profile-service/pkg/constants"
@@ -18,12 +19,14 @@ type GenerateOwnerCodeUseCase interface {
 }
 
 type generateOwnerCodeUseCase struct {
-	ownerCodeRepo repository.OwnerCodeRepository
+	ownerCodeRepo  repository.OwnerCodeRepository
+	cachingService caching.CachingService
 }
 
-func NewGenerateOwnerCodeUseCase(ownerCodeRepo repository.OwnerCodeRepository) GenerateOwnerCodeUseCase {
+func NewGenerateOwnerCodeUseCase(ownerCodeRepo repository.OwnerCodeRepository, cachingService caching.CachingService) GenerateOwnerCodeUseCase {
 	return &generateOwnerCodeUseCase{
-		ownerCodeRepo: ownerCodeRepo,
+		ownerCodeRepo:  ownerCodeRepo,
+		cachingService: cachingService,
 	}
 }
 
@@ -42,6 +45,7 @@ func (s *generateOwnerCodeUseCase) GenerateStudentCode(ctx context.Context, stud
 		return "", err
 	}
 
+	_ = s.cachingService.SetStudentCode(ctx, studentID, code)
 	return code, nil
 }
 
@@ -60,6 +64,7 @@ func (s *generateOwnerCodeUseCase) GenerateTeacherCode(ctx context.Context, teac
 		return "", err
 	}
 
+	_ = s.cachingService.SetTeacherCode(ctx, teacherID, code)
 	return code, nil
 }
 
@@ -78,6 +83,7 @@ func (s *generateOwnerCodeUseCase) GenerateStaffCode(ctx context.Context, staffI
 		return "", err
 	}
 
+	_ = s.cachingService.SetStaffCode(ctx, staffID, code)
 	return code, nil
 }
 
@@ -96,6 +102,7 @@ func (s *generateOwnerCodeUseCase) GenerateParentCode(ctx context.Context, paren
 		return "", err
 	}
 
+	_ = s.cachingService.SetParentCode(ctx, parentID, code)
 	return code, nil
 }
 
@@ -114,6 +121,7 @@ func (s *generateOwnerCodeUseCase) GenerateUserCode(ctx context.Context, userID 
 		return "", err
 	}
 
+	_ = s.cachingService.SetUserCode(ctx, userID, code)
 	return code, nil
 }
 
@@ -132,5 +140,6 @@ func (s *generateOwnerCodeUseCase) GenerateChildCode(ctx context.Context, userID
 		return "", err
 	}
 
+	_ = s.cachingService.SetChildCode(ctx, userID, code)
 	return code, nil
 }

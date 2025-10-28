@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/consul/api"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	cached_service "profile-service/internal/cache/service"
+	"profile-service/internal/cache/caching"
 	profile_service "profile-service/internal/profile/service"
 
 	goredis "github.com/redis/go-redis/v9"
@@ -28,17 +28,17 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *goredis.Client, own
 
 	// cache setup
 	systemCache := cache.NewRedisCache(cacheClientRedis)
-	cachedUserGateway := cached_service.NewCachedUserGateway(userGateway, systemCache, config.AppConfig.Database.RedisCache.TTLSeconds)
+	cachingProfileService := caching.NewCachingService(systemCache, config.AppConfig.Database.RedisCache.TTLSeconds)
 
 	// Repository
 	ownerCodeRepository := repository.NewOwnerCodeRepository(ownerCodeCol)
 
 	// usecase
-	generateOwnerCodeUseCase := usecase.NewGenerateOwnerCodeUseCase(ownerCodeRepository)
+	generateOwnerCodeUseCase := usecase.NewGenerateOwnerCodeUseCase(ownerCodeRepository, cachingProfileService)
 	getOwnerCodeUseCase := usecase.NewGetOwnerCodeUseCase(ownerCodeRepository)
 
 	// service
-	onwerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, cachedUserGateway, generateOwnerCodeUseCase, getOwnerCodeUseCase)
+	onwerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, generateOwnerCodeUseCase, getOwnerCodeUseCase)
 
 	// handler
 	ownerCodeHandler := handler.NewOwnerCodeHandler(onwerCodeService)

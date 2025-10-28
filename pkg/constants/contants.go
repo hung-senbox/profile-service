@@ -147,3 +147,5 @@ const (
 	ChildRole        OwnerRoles = "child"
 	ParentRole       OwnerRoles = "parent"
 )
+
+const CachePrefix = "profile-service:"

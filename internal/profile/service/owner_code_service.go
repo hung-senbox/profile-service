@@ -2,7 +2,6 @@ package service
 
 import (
 	"context"
-	"profile-service/internal/gateway"
 	"profile-service/internal/profile/repository"
 	"profile-service/internal/profile/usecase"
 )
@@ -27,20 +26,17 @@ type OwnerCodeService interface {
 
 type ownerCodeService struct {
 	ownerCodeRepo            repository.OwnerCodeRepository
-	cachedUserGw             gateway.UserGateway
 	generateOwnerCodeUseCase usecase.GenerateOwnerCodeUseCase
 	getOwnerCodeUseCase      usecase.GetOwnerCodeUseCase
 }
 
 func NewOwnerCodeService(
 	ownerCodeRepo repository.OwnerCodeRepository,
-	cachedUserGw gateway.UserGateway,
 	generateOwnerCodeUseCase usecase.GenerateOwnerCodeUseCase,
 	getOwnerCodeUseCase usecase.GetOwnerCodeUseCase,
 ) OwnerCodeService {
 	return &ownerCodeService{
 		ownerCodeRepo:            ownerCodeRepo,
-		cachedUserGw:             cachedUserGw,
 		generateOwnerCodeUseCase: generateOwnerCodeUseCase,
 		getOwnerCodeUseCase:      getOwnerCodeUseCase,
 	}

@@ -994,3 +994,751 @@
   "msg": "write exception: write errors: [E11000 duplicate key error collection: profile_service.owner_code index: _id_ dup key: { _id: ObjectId('000000000000000000000000') }]",
   "time": "2025-10-27T10:53:03+07:00"
 }
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=5849b67e-83e4-4a64-8d79-00611ef26b54 and role=teacher already exists",
+  "time": "2025-10-28T11:38:39+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=33e0292c-9e65-4f27-ab54-da4913928f86 and role=teacher already exists",
+  "time": "2025-10-28T11:39:02+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=5849b67e-83e4-4a64-8d79-00611ef26b54 and role=teacher already exists",
+  "time": "2025-10-28T11:39:04+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=33e0292c-9e65-4f27-ab54-da4913928f86 and role=teacher already exists",
+  "time": "2025-10-28T14:38:57+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=30deca2e-3b31-4c9b-8a73-fa04340538b9 and role=teacher already exists",
+  "time": "2025-10-28T14:39:05+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=33e0292c-9e65-4f27-ab54-da4913928f86 and role=teacher already exists",
+  "time": "2025-10-28T14:39:05+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=30deca2e-3b31-4c9b-8a73-fa04340538b9 and role=teacher already exists",
+  "time": "2025-10-28T14:39:12+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=33e0292c-9e65-4f27-ab54-da4913928f86 and role=teacher already exists",
+  "time": "2025-10-28T14:39:12+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/staff/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=5eba0995-cb77-4b1c-9bf0-68ed87c57f46 and role=staff already exists",
+  "time": "2025-10-28T14:43:50+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/staff/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=5eba0995-cb77-4b1c-9bf0-68ed87c57f46 and role=staff already exists",
+  "time": "2025-10-28T14:45:42+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/parent/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=864246aa-a8f6-11f0-8285-4604cc64593a and role=parent already exists",
+  "time": "2025-10-28T14:46:02+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/parent/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=864246aa-a8f6-11f0-8285-4604cc64593a and role=parent already exists",
+  "time": "2025-10-28T14:46:07+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=3def635d-476a-11f0-a217-66a8df12cfbc and role=user already exists",
+  "time": "2025-10-28T14:47:31+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=48726140-45d5-11f0-bc9f-16b1076c7f5e and role=user already exists",
+  "time": "2025-10-28T14:47:32+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=eac98313-6eb0-11f0-b511-96a79d96d7c0 and role=user already exists",
+  "time": "2025-10-28T14:47:32+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=ec23db1d-1297-4175-bfa8-9d06bfd0767a and role=user already exists",
+  "time": "2025-10-28T14:47:32+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=45362a61-6c66-11f0-9365-3208eca1f6b5 and role=user already exists",
+  "time": "2025-10-28T14:47:36+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=48ac1fec-92ac-11f0-b358-4604cc64593a and role=user already exists",
+  "time": "2025-10-28T14:47:36+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=4ecb1522-8965-11f0-90d6-4604cc645939 and role=user already exists",
+  "time": "2025-10-28T14:47:36+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=eac98313-6eb0-11f0-b511-96a79d96d7c0 and role=user already exists",
+  "time": "2025-10-28T14:47:36+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=ec23db1d-1297-4175-bfa8-9d06bfd0767a and role=user already exists",
+  "time": "2025-10-28T14:47:36+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=1cd4c400-92ac-11f0-8514-4604cc64593a and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=3def635d-476a-11f0-a217-66a8df12cfbc and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=48726140-45d5-11f0-bc9f-16b1076c7f5e and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=48ac1fec-92ac-11f0-b358-4604cc64593a and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=9b09968d-4b30-11f0-8b35-7adebf8fa0e6 and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=c68fbee2-6eb4-11f0-bbfe-060e36555004 and role=user already exists",
+  "time": "2025-10-28T14:47:40+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=3def635d-476a-11f0-a217-66a8df12cfbc and role=user already exists",
+  "time": "2025-10-28T14:47:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=45362a61-6c66-11f0-9365-3208eca1f6b5 and role=user already exists",
+  "time": "2025-10-28T14:47:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=4ecb1522-8965-11f0-90d6-4604cc645939 and role=user already exists",
+  "time": "2025-10-28T14:47:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=7c28b298-8179-11f0-8716-4604cc64593a and role=user already exists",
+  "time": "2025-10-28T14:47:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=9b09968d-4b30-11f0-8b35-7adebf8fa0e6 and role=user already exists",
+  "time": "2025-10-28T14:47:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=c68fbee2-6eb4-11f0-bbfe-060e36555004 and role=user already exists",
+  "time": "2025-10-28T14:47:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=ec23db1d-1297-4175-bfa8-9d06bfd0767a and role=user already exists",
+  "time": "2025-10-28T14:47:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f6aea115-4637-465f-9d15-5e77b9888fc9 and role=user already exists",
+  "time": "2025-10-28T14:47:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=3def635d-476a-11f0-a217-66a8df12cfbc and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=412746e4-8964-11f0-9ae9-4604cc645939 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=45362a61-6c66-11f0-9365-3208eca1f6b5 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=48ac1fec-92ac-11f0-b358-4604cc64593a and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=4ecb1522-8965-11f0-90d6-4604cc645939 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=9b09968d-4b30-11f0-8b35-7adebf8fa0e6 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=c68fbee2-6eb4-11f0-bbfe-060e36555004 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/user/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f6aea115-4637-465f-9d15-5e77b9888fc9 and role=user already exists",
+  "time": "2025-10-28T14:47:47+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=2f5a30f7-ac13-4654-9701-8fba9472e0e2 and role=child already exists",
+  "time": "2025-10-28T14:48:18+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=942dd297-d545-4926-b913-1ec1b0fe32f2 and role=child already exists",
+  "time": "2025-10-28T14:48:18+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:18+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:22+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=78de4909-3c23-4ac8-8435-96c3ee90efb7 and role=child already exists",
+  "time": "2025-10-28T14:48:26+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=2f5a30f7-ac13-4654-9701-8fba9472e0e2 and role=child already exists",
+  "time": "2025-10-28T14:48:37+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=78de4909-3c23-4ac8-8435-96c3ee90efb7 and role=child already exists",
+  "time": "2025-10-28T14:48:37+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:37+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=436841af-eed2-42b4-8a97-7b408c57d902 and role=child already exists",
+  "time": "2025-10-28T14:48:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=942dd297-d545-4926-b913-1ec1b0fe32f2 and role=child already exists",
+  "time": "2025-10-28T14:48:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:43+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=2f5a30f7-ac13-4654-9701-8fba9472e0e2 and role=child already exists",
+  "time": "2025-10-28T14:48:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=78de4909-3c23-4ac8-8435-96c3ee90efb7 and role=child already exists",
+  "time": "2025-10-28T14:48:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=942dd297-d545-4926-b913-1ec1b0fe32f2 and role=child already exists",
+  "time": "2025-10-28T14:48:44+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=2f5a30f7-ac13-4654-9701-8fba9472e0e2 and role=child already exists",
+  "time": "2025-10-28T14:48:45+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=436841af-eed2-42b4-8a97-7b408c57d902 and role=child already exists",
+  "time": "2025-10-28T14:48:45+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=78de4909-3c23-4ac8-8435-96c3ee90efb7 and role=child already exists",
+  "time": "2025-10-28T14:48:45+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:45+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=2f5a30f7-ac13-4654-9701-8fba9472e0e2 and role=child already exists",
+  "time": "2025-10-28T14:48:45+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=436841af-eed2-42b4-8a97-7b408c57d902 and role=child already exists",
+  "time": "2025-10-28T14:48:46+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/child/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=f1b9286f-4c58-407a-905c-3ae068fb2559 and role=child already exists",
+  "time": "2025-10-28T14:48:46+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=30deca2e-3b31-4c9b-8a73-fa04340538b9 and role=teacher already exists",
+  "time": "2025-10-28T14:54:52+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=30deca2e-3b31-4c9b-8a73-fa04340538b9 and role=teacher already exists",
+  "time": "2025-10-28T14:54:53+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=33e0292c-9e65-4f27-ab54-da4913928f86 and role=teacher already exists",
+  "time": "2025-10-28T14:54:53+07:00"
+}
+{
+  "data": {
+    "error_code": "ERR_INVALID_OPERATION",
+    "method": "POST",
+    "path": "/api/v1/gateway/profiles/owner-code/teacher/generate",
+    "status_code": 500
+  },
+  "level": "error",
+  "msg": "owner code for owner_id=5849b67e-83e4-4a64-8d79-00611ef26b54 and role=teacher already exists",
+  "time": "2025-10-28T14:54:53+07:00"
+}

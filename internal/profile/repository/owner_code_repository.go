@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"fmt"
 	"profile-service/internal/profile/model"
 	"time"
 
@@ -24,10 +25,25 @@ func NewOwnerCodeRepository(collection *mongo.Collection) OwnerCodeRepository {
 }
 
 func (r *ownerCodeRepository) Create(ctx context.Context, ownerCode *model.OwnerCode) error {
+	// Kiểm tra trùng owner_id + owner_role
+	filter := bson.M{
+		"owner_id":   ownerCode.OwnerID,
+		"owner_role": ownerCode.OwnerRole,
+	}
+	existing := r.collection.FindOne(ctx, filter)
+	if existing.Err() == nil {
+		return fmt.Errorf("owner code for owner_id=%s and role=%s already exists", ownerCode.OwnerID, ownerCode.OwnerRole)
+	}
+	if existing.Err() != mongo.ErrNoDocuments {
+		return existing.Err()
+	}
+
+	// Tiếp tục tạo
 	if ownerCode.ID.IsZero() {
 		ownerCode.ID = primitive.NewObjectID()
 	}
 	ownerCode.CreatedAt = time.Now()
+
 	_, err := r.collection.InsertOne(ctx, ownerCode)
 	return err
 }
