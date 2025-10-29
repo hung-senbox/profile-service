@@ -8,55 +8,59 @@ import "profile-service/pkg/constants"
 
 // entity data
 func UserCacheKey(userID string) string {
-	return constants.CachePrefix + "user:" + userID
+	return constants.ProfileCachePrefix + "user:" + userID
 }
 
 func StudentCacheKey(studentID string) string {
-	return constants.CachePrefix + "student:" + studentID
+	return constants.ProfileCachePrefix + "student:" + studentID
 }
 
 func TeacherCacheKey(teacherID string) string {
-	return constants.CachePrefix + "teacher:" + teacherID
+	return constants.ProfileCachePrefix + "teacher:" + teacherID
 }
 
 func StaffCacheKey(staffID string) string {
-	return constants.CachePrefix + "staff:" + staffID
+	return constants.ProfileCachePrefix + "staff:" + staffID
 }
 
 func ParentCacheKey(parentID string) string {
-	return constants.CachePrefix + "parent:" + parentID
+	return constants.ProfileCachePrefix + "parent:" + parentID
 }
 
 func ChildCacheKey(childID string) string {
-	return constants.CachePrefix + "child:" + childID
+	return constants.ProfileCachePrefix + "child:" + childID
+}
+
+func TeacherByUserAndOrgCacheKey(userID, orgID string) string {
+	return constants.ProfileCachePrefix + "teacher-by:" + userID + ":" + orgID
 }
 
 // code mapping
 func UserCodeCacheKey(userID string) string {
-	return constants.CachePrefix + "user_code:" + userID
+	return constants.ProfileCachePrefix + "user_code:" + userID
 }
 
 func StudentCodeCacheKey(studentID string) string {
-	return constants.CachePrefix + "student_code:" + studentID
+	return constants.ProfileCachePrefix + "student_code:" + studentID
 }
 
 func TeacherCodeCacheKey(teacherID string) string {
-	return constants.CachePrefix + "teacher_code:" + teacherID
+	return constants.ProfileCachePrefix + "teacher_code:" + teacherID
 }
 
 func StaffCodeCacheKey(staffID string) string {
-	return constants.CachePrefix + "staff_code:" + staffID
+	return constants.ProfileCachePrefix + "staff_code:" + staffID
 }
 
 func ParentCodeCacheKey(parentID string) string {
-	return constants.CachePrefix + "parent_code:" + parentID
+	return constants.ProfileCachePrefix + "parent_code:" + parentID
 }
 
 func ChildCodeCacheKey(childID string) string {
-	return constants.CachePrefix + "child_code:" + childID
+	return constants.ProfileCachePrefix + "child_code:" + childID
 }
 
 // generic
 func GenericCacheKey(prefix, id string) string {
-	return constants.CachePrefix + prefix + ":" + id
+	return constants.ProfileCachePrefix + prefix + ":" + id
 }
