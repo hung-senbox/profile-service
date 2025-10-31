@@ -3,10 +3,11 @@ package usecase
 import (
 	"context"
 	"profile-service/helper"
-	"profile-service/internal/cache/caching"
 	"profile-service/internal/profile/model"
 	"profile-service/internal/profile/repository"
 	"profile-service/pkg/constants"
+
+	profile_caching_service "github.com/hung-senbox/senbox-cache-service/pkg/cache/caching"
 )
 
 type GenerateOwnerCodeUseCase interface {
@@ -19,14 +20,14 @@ type GenerateOwnerCodeUseCase interface {
 }
 
 type generateOwnerCodeUseCase struct {
-	ownerCodeRepo  repository.OwnerCodeRepository
-	cachingService caching.CachingService
+	ownerCodeRepo         repository.OwnerCodeRepository
+	profileCachingService profile_caching_service.CachingProfileService
 }
 
-func NewGenerateOwnerCodeUseCase(ownerCodeRepo repository.OwnerCodeRepository, cachingService caching.CachingService) GenerateOwnerCodeUseCase {
+func NewGenerateOwnerCodeUseCase(ownerCodeRepo repository.OwnerCodeRepository, profileCachingService profile_caching_service.CachingProfileService) GenerateOwnerCodeUseCase {
 	return &generateOwnerCodeUseCase{
-		ownerCodeRepo:  ownerCodeRepo,
-		cachingService: cachingService,
+		ownerCodeRepo:         ownerCodeRepo,
+		profileCachingService: profileCachingService,
 	}
 }
 
@@ -45,7 +46,7 @@ func (s *generateOwnerCodeUseCase) GenerateStudentCode(ctx context.Context, stud
 		return "", err
 	}
 
-	_ = s.cachingService.SetStudentCode(ctx, studentID, code)
+	_ = s.profileCachingService.SetStudentCode(ctx, studentID, code)
 	return code, nil
 }
 
@@ -64,7 +65,7 @@ func (s *generateOwnerCodeUseCase) GenerateTeacherCode(ctx context.Context, teac
 		return "", err
 	}
 
-	_ = s.cachingService.SetTeacherCode(ctx, teacherID, code)
+	_ = s.profileCachingService.SetTeacherCode(ctx, teacherID, code)
 	return code, nil
 }
 
@@ -83,7 +84,7 @@ func (s *generateOwnerCodeUseCase) GenerateStaffCode(ctx context.Context, staffI
 		return "", err
 	}
 
-	_ = s.cachingService.SetStaffCode(ctx, staffID, code)
+	_ = s.profileCachingService.SetStaffCode(ctx, staffID, code)
 	return code, nil
 }
 
@@ -102,7 +103,7 @@ func (s *generateOwnerCodeUseCase) GenerateParentCode(ctx context.Context, paren
 		return "", err
 	}
 
-	_ = s.cachingService.SetParentCode(ctx, parentID, code)
+	_ = s.profileCachingService.SetParentCode(ctx, parentID, code)
 	return code, nil
 }
 
@@ -121,7 +122,7 @@ func (s *generateOwnerCodeUseCase) GenerateUserCode(ctx context.Context, userID 
 		return "", err
 	}
 
-	_ = s.cachingService.SetUserCode(ctx, userID, code)
+	_ = s.profileCachingService.SetUserCode(ctx, userID, code)
 	return code, nil
 }
 
@@ -140,6 +141,6 @@ func (s *generateOwnerCodeUseCase) GenerateChildCode(ctx context.Context, userID
 		return "", err
 	}
 
-	_ = s.cachingService.SetChildCode(ctx, userID, code)
+	_ = s.profileCachingService.SetChildCode(ctx, userID, code)
 	return code, nil
 }
