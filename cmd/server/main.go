@@ -16,6 +16,7 @@ import (
 	"profile-service/pkg/zap"
 
 	consulapi "github.com/hashicorp/consul/api"
+	redis "github.com/hung-senbox/senbox-cache-service/pkg/redis"
 )
 
 func main() {
@@ -49,8 +50,10 @@ func main() {
 	db.ConnectMongoDB()
 
 	// redis cache
-	cacheClientRedis := db.InitRedisCache()
-	defer cacheClientRedis.Close()
+	cacheClientRedis, err := redis.InitRedisCacheFromFile(filePath)
+	if err != nil {
+		logger.Fatalf("Failed to initialize Redis cache: %v", err)
+	}
 
 	r := router.SetupRouter(consulClient, cacheClientRedis, db.OwnerCodeCollection)
 	port := cfg.Server.Port

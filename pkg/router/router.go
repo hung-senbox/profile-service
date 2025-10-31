@@ -1,7 +1,6 @@
 package router
 
 import (
-	"profile-service/internal/cache"
 	"profile-service/internal/gateway"
 	"profile-service/pkg/config"
 
@@ -14,21 +13,20 @@ import (
 	"github.com/hashicorp/consul/api"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"profile-service/internal/cache/caching"
 	profile_service "profile-service/internal/profile/service"
 
-	goredis "github.com/redis/go-redis/v9"
+	cache_service "github.com/hung-senbox/senbox-cache-service/pkg/cache"
+	profile_caching_service "github.com/hung-senbox/senbox-cache-service/pkg/cache/caching"
 )
 
-func SetupRouter(consulClient *api.Client, cacheClientRedis *goredis.Client, ownerCodeCol *mongo.Collection) *gin.Engine {
+func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.RedisCache, ownerCodeCol *mongo.Collection) *gin.Engine {
 	r := gin.Default()
 
 	// Gateway setup
 	userGateway := gateway.NewUserGateway("go-main-service", consulClient)
 
 	// cache setup
-	systemCache := cache.NewRedisCache(cacheClientRedis)
-	cachingProfileService := caching.NewCachingService(systemCache, config.AppConfig.Database.RedisCache.TTLSeconds)
+	cachingProfileService := profile_caching_service.NewCachingService(cacheClientRedis, config.AppConfig.Database.RedisCache.TTLSeconds)
 
 	// Repository
 	ownerCodeRepository := repository.NewOwnerCodeRepository(ownerCodeCol)
@@ -38,10 +36,10 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *goredis.Client, own
 	getOwnerCodeUseCase := usecase.NewGetOwnerCodeUseCase(ownerCodeRepository)
 
 	// service
-	onwerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, generateOwnerCodeUseCase, getOwnerCodeUseCase)
+	ownerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, generateOwnerCodeUseCase, getOwnerCodeUseCase)
 
 	// handler
-	ownerCodeHandler := handler.NewOwnerCodeHandler(onwerCodeService)
+	ownerCodeHandler := handler.NewOwnerCodeHandler(ownerCodeService)
 
 	// Register routes
 	route.RegisterProfileRoutes(r, ownerCodeHandler, userGateway)
