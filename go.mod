@@ -7,7 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.10.1
 	github.com/golang-jwt/jwt/v5 v5.2.2
 	github.com/hashicorp/consul/api v1.32.1
-	github.com/hung-senbox/senbox-cache-service v1.0.1
+	github.com/hung-senbox/senbox-cache-service v1.0.4
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/viper v1.20.1

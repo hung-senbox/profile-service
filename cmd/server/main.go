@@ -50,7 +50,7 @@ func main() {
 	db.ConnectMongoDB()
 
 	// redis cache
-	cacheClientRedis, err := redis.InitRedisCacheFromFile(filePath)
+	cacheClientRedis, err := redis.InitRedisCache(config.AppConfig.Database.RedisCache.Host, config.AppConfig.Database.RedisCache.Port, config.AppConfig.Database.RedisCache.Password, config.AppConfig.Database.RedisCache.DB)
 	if err != nil {
 		logger.Fatalf("Failed to initialize Redis cache: %v", err)
 	}
