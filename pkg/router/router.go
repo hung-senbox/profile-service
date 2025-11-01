@@ -26,7 +26,7 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.Redis
 	userGateway := gateway.NewUserGateway("go-main-service", consulClient)
 
 	// cache setup
-	cachingProfileService := profile_caching_service.NewCachingService(cacheClientRedis, config.AppConfig.Database.RedisCache.TTLSeconds)
+	cachingProfileService := profile_caching_service.NewCachingProfileService(cacheClientRedis, config.AppConfig.Database.RedisCache.TTLSeconds)
 
 	// Repository
 	ownerCodeRepository := repository.NewOwnerCodeRepository(ownerCodeCol)
