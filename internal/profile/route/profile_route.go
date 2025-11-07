@@ -20,6 +20,7 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 			organizationProfile := profileAdmin.Group("/organization")
 			{
 				organizationProfile.POST("/summary", oh.UploadSummary)
+				organizationProfile.GET("/summary", oh.GetSummary)
 			}
 		}
 	}

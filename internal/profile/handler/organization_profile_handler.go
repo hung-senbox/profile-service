@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"errors"
 	"net/http"
 	"profile-service/helper"
 	"profile-service/internal/profile/dto/request"
@@ -25,18 +24,20 @@ func (h *OrganizationProfileHandler) UploadSummary(c *gin.Context) {
 		return
 	}
 
-	organizationID := c.Param("organization_id")
-	if organizationID == "" {
-		helper.SendError(c, http.StatusBadRequest, errors.New("organization_id is required"), helper.ErrInvalidRequest)
-		return
-	}
-	req.OrganizationID = organizationID
-
-	err := h.service.UploadSummary(c.Request.Context(), req.OrganizationID, req.Summary)
+	err := h.service.UploadSummary(c.Request.Context(), req)
 	if err != nil {
 		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
 		return
 	}
 
 	helper.SendSuccess(c, http.StatusOK, "Success", nil)
+}
+
+func (h *OrganizationProfileHandler) GetSummary(c *gin.Context) {
+	summary, err := h.service.GetSummary(c.Request.Context())
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+	helper.SendSuccess(c, http.StatusOK, "Success", summary)
 }
