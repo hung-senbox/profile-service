@@ -19,7 +19,7 @@ import (
 	profile_caching_service "github.com/hung-senbox/senbox-cache-service/pkg/cache/caching"
 )
 
-func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.RedisCache, ownerCodeCol *mongo.Collection) *gin.Engine {
+func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.RedisCache, ownerCodeCol, organizationProfileCollection *mongo.Collection) *gin.Engine {
 	r := gin.Default()
 
 	// Gateway setup
@@ -30,19 +30,21 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.Redis
 
 	// Repository
 	ownerCodeRepository := repository.NewOwnerCodeRepository(ownerCodeCol)
+	organizationProfileRepository := repository.NewOrganizationProfileRepository(organizationProfileCollection)
 
 	// usecase
 	generateOwnerCodeUseCase := usecase.NewGenerateOwnerCodeUseCase(ownerCodeRepository, cachingProfileService)
 	getOwnerCodeUseCase := usecase.NewGetOwnerCodeUseCase(ownerCodeRepository)
-
+	organizationProfileUsecase := usecase.NewOrganizationProfileUsecase(organizationProfileRepository)
 	// service
 	ownerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, generateOwnerCodeUseCase, getOwnerCodeUseCase)
+	organizationProfileService := profile_service.NewOrganizationProfileService(organizationProfileUsecase)
 
 	// handler
 	ownerCodeHandler := handler.NewOwnerCodeHandler(ownerCodeService)
-
+	organizationProfileHandler := handler.NewOrganizationProfileHandler(organizationProfileService)
 	// Register routes
-	route.RegisterProfileRoutes(r, ownerCodeHandler, userGateway)
+	route.RegisterProfileRoutes(r, ownerCodeHandler, organizationProfileHandler, userGateway)
 
 	return r
 }

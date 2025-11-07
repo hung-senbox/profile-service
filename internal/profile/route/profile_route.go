@@ -8,8 +8,21 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, userGw gateway.UserGateway) {
+func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *handler.OrganizationProfileHandler, userGw gateway.UserGateway) {
 	apiV1 := r.Group("/api/v1")
+
+	adminGroup := apiV1.Group("/admin")
+	adminGroup.Use(middleware.Secured(userGw))
+	{
+		profileAdmin := adminGroup.Group("/profiles")
+		{
+			// organization profile
+			organizationProfile := profileAdmin.Group("/organization")
+			{
+				organizationProfile.POST("/summary", oh.UploadSummary)
+			}
+		}
+	}
 
 	ownerCodePublic := apiV1.Group("/gateway/profiles/owner-code")
 	{
