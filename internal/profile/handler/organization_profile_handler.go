@@ -34,10 +34,6 @@ func (h *OrganizationProfileHandler) UploadSummary(c *gin.Context) {
 }
 
 func (h *OrganizationProfileHandler) GetSummary(c *gin.Context) {
-	summary, err := h.service.GetSummary(c.Request.Context())
-	if err != nil {
-		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
-		return
-	}
+	summary, _ := h.service.GetSummary(c.Request.Context())
 	helper.SendSuccess(c, http.StatusOK, "Success", summary)
 }
