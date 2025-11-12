@@ -146,6 +146,7 @@ const (
 	StudentRole      OwnerRoles = "student"
 	ChildRole        OwnerRoles = "child"
 	ParentRole       OwnerRoles = "parent"
+	DeviceRole       OwnerRoles = "device"
 )
 
 const ProfileCachePrefix = "profile-service:"

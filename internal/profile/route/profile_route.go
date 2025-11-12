@@ -42,6 +42,7 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 				ownerCode.POST("/staff/generate", ho.GenerateStaffCode)
 				ownerCode.POST("/parent/generate", ho.GenerateParentCode)
 				ownerCode.POST("/child/generate", ho.GenerateChildCode)
+				ownerCode.POST("/device/generate", ho.GenerateDeviceCode)
 
 				ownerCode.GET("/student/:student_id", ho.GetStudentCode)
 				ownerCode.GET("/teacher/:teacher_id", ho.GetTeacherCode)
@@ -49,6 +50,7 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 				ownerCode.GET("/parent/:parent_id", ho.GetParentCode)
 				ownerCode.GET("/user/:user_id", ho.GetUserCode)
 				ownerCode.GET("/child/:child_id", ho.GetChildCode)
+				ownerCode.GET("/device/:device_id", ho.GetDeviceCode)
 			}
 		}
 	}

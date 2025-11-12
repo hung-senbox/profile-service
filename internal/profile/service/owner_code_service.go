@@ -14,6 +14,7 @@ type OwnerCodeService interface {
 	GenerateParentCode(ctx context.Context, parentID string, createdIndex int) (string, error)
 	GenerateUserCode(ctx context.Context, userID string, createdIndex int) (string, error)
 	GenerateChildCode(ctx context.Context, childID string, createdIndex int) (string, error)
+	GenerateDeviceCode(ctx context.Context, deviceID string, createdIndex int) (string, error)
 
 	// get owner codes
 	GetStudentCodeByStudentID(ctx context.Context, studentID string) (*string, error)
@@ -22,6 +23,7 @@ type OwnerCodeService interface {
 	GetParentCodeByParentID(ctx context.Context, parentID string) (*string, error)
 	GetUserCodeByUserID(ctx context.Context, userID string) (*string, error)
 	GetChildCodeByChildID(ctx context.Context, childID string) (*string, error)
+	GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error)
 }
 
 type ownerCodeService struct {
@@ -66,6 +68,10 @@ func (s *ownerCodeService) GenerateChildCode(ctx context.Context, childID string
 	return s.generateOwnerCodeUseCase.GenerateChildCode(ctx, childID, createdIndex)
 }
 
+func (s *ownerCodeService) GenerateDeviceCode(ctx context.Context, deviceID string, createdIndex int) (string, error) {
+	return s.generateOwnerCodeUseCase.GenerateDeviceCode(ctx, deviceID, createdIndex)
+}
+
 func (s *ownerCodeService) GetStudentCodeByStudentID(ctx context.Context, studentID string) (*string, error) {
 	return s.getOwnerCodeUseCase.GetStudentCodeByStudentID(ctx, studentID)
 }
@@ -88,4 +94,8 @@ func (s *ownerCodeService) GetUserCodeByUserID(ctx context.Context, userID strin
 
 func (s *ownerCodeService) GetChildCodeByChildID(ctx context.Context, childID string) (*string, error) {
 	return s.getOwnerCodeUseCase.GetChildCodeByChildID(ctx, childID)
+}
+
+func (s *ownerCodeService) GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error) {
+	return s.getOwnerCodeUseCase.GetDeviceCodeByDeviceID(ctx, deviceID)
 }
