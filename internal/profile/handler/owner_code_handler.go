@@ -131,6 +131,22 @@ func (h *OwnerCodeHandler) GenerateDeviceCode(c *gin.Context) {
 	helper.SendSuccess(c, http.StatusCreated, "Success", res)
 }
 
+func (h *OwnerCodeHandler) GenerateOrganizationCode(c *gin.Context) {
+	var req request.GenerateOwnerCodeRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		helper.SendError(c, http.StatusBadRequest, err, helper.ErrInvalidRequest)
+		return
+	}
+
+	res, err := h.service.GenerateOrganizationCode(c.Request.Context(), req.OwnerID, req.CreatedIndex)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusCreated, "Success", res)
+}
+
 // ==================== Get Owner Codes =====================
 func (h *OwnerCodeHandler) GetStudentCode(c *gin.Context) {
 	studentID := c.Param("student_id")
@@ -235,6 +251,22 @@ func (h *OwnerCodeHandler) GetDeviceCode(c *gin.Context) {
 	}
 
 	res, err := h.service.GetDeviceCodeByDeviceID(c.Request.Context(), deviceID)
+	if err != nil {
+		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
+		return
+	}
+
+	helper.SendSuccess(c, http.StatusOK, "Success", res)
+}
+
+func (h *OwnerCodeHandler) GetOrganizationCode(c *gin.Context) {
+	organizationID := c.Param("organization_id")
+	if organizationID == "" {
+		helper.SendError(c, http.StatusBadRequest, nil, "organization_id is required")
+		return
+	}
+
+	res, err := h.service.GetOrganizationCodeByOrganizationID(c.Request.Context(), organizationID)
 	if err != nil {
 		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
 		return

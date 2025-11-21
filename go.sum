@@ -201,6 +201,8 @@ github.com/hung-senbox/senbox-cache-service v1.0.4 h1:A9uniemngYFBU9mDQZ2utnzH5q
 github.com/hung-senbox/senbox-cache-service v1.0.4/go.mod h1:RxeWouaeEU40gJXfUayd8yo0XEn9U2JQUgOpBJuZBaQ=
 github.com/hung-senbox/senbox-cache-service v1.0.8 h1:rOB1GfQtc04GjrFfSypp1nQdYsn51LwFPQ9j+h3YN18=
 github.com/hung-senbox/senbox-cache-service v1.0.8/go.mod h1:RxeWouaeEU40gJXfUayd8yo0XEn9U2JQUgOpBJuZBaQ=
+github.com/hung-senbox/senbox-cache-service v1.0.9 h1:xJnmlswrKv/ko2HQ6guPoYaW3rFA73tYZmyug8tQ4uA=
+github.com/hung-senbox/senbox-cache-service v1.0.9/go.mod h1:RxeWouaeEU40gJXfUayd8yo0XEn9U2JQUgOpBJuZBaQ=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
 github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=

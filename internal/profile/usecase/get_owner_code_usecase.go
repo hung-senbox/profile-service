@@ -15,6 +15,7 @@ type GetOwnerCodeUseCase interface {
 	GetUserCodeByUserID(ctx context.Context, userID string) (*string, error)
 	GetChildCodeByChildID(ctx context.Context, childID string) (*string, error)
 	GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error)
+	GetOrganizationCodeByOrganizationID(ctx context.Context, organizationID string) (*string, error)
 }
 
 type getOwnerCodeUseCase struct {
@@ -61,4 +62,8 @@ func (s *getOwnerCodeUseCase) GetChildCodeByChildID(ctx context.Context, childID
 
 func (s *getOwnerCodeUseCase) GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error) {
 	return s.GetOwnerCodeByOwnerIDAndRole(ctx, deviceID, constants.DeviceRole)
+}
+
+func (s *getOwnerCodeUseCase) GetOrganizationCodeByOrganizationID(ctx context.Context, organizationID string) (*string, error) {
+	return s.GetOwnerCodeByOwnerIDAndRole(ctx, organizationID, constants.OrganizationRole)
 }

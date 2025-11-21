@@ -59,3 +59,7 @@ func GenerateChildCode(CreatedIndex int) string {
 func GenerateDeviceCode(createdIndex int) string {
 	return "UR.D." + strconv.Itoa(createdIndex)
 }
+
+func GenerateOrganizationCode(createdIndex int) string {
+	return "O.D." + strconv.Itoa(createdIndex)
+}

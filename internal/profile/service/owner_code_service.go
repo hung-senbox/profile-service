@@ -15,6 +15,7 @@ type OwnerCodeService interface {
 	GenerateUserCode(ctx context.Context, userID string, createdIndex int) (string, error)
 	GenerateChildCode(ctx context.Context, childID string, createdIndex int) (string, error)
 	GenerateDeviceCode(ctx context.Context, deviceID string, createdIndex int) (string, error)
+	GenerateOrganizationCode(ctx context.Context, organizationID string, createdIndex int) (string, error)
 
 	// get owner codes
 	GetStudentCodeByStudentID(ctx context.Context, studentID string) (*string, error)
@@ -24,6 +25,7 @@ type OwnerCodeService interface {
 	GetUserCodeByUserID(ctx context.Context, userID string) (*string, error)
 	GetChildCodeByChildID(ctx context.Context, childID string) (*string, error)
 	GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error)
+	GetOrganizationCodeByOrganizationID(ctx context.Context, organizationID string) (*string, error)
 }
 
 type ownerCodeService struct {
@@ -72,6 +74,10 @@ func (s *ownerCodeService) GenerateDeviceCode(ctx context.Context, deviceID stri
 	return s.generateOwnerCodeUseCase.GenerateDeviceCode(ctx, deviceID, createdIndex)
 }
 
+func (s *ownerCodeService) GenerateOrganizationCode(ctx context.Context, organizationID string, createdIndex int) (string, error) {
+	return s.generateOwnerCodeUseCase.GenerateOrganizationCode(ctx, organizationID, createdIndex)
+}
+
 func (s *ownerCodeService) GetStudentCodeByStudentID(ctx context.Context, studentID string) (*string, error) {
 	return s.getOwnerCodeUseCase.GetStudentCodeByStudentID(ctx, studentID)
 }
@@ -98,4 +104,8 @@ func (s *ownerCodeService) GetChildCodeByChildID(ctx context.Context, childID st
 
 func (s *ownerCodeService) GetDeviceCodeByDeviceID(ctx context.Context, deviceID string) (*string, error) {
 	return s.getOwnerCodeUseCase.GetDeviceCodeByDeviceID(ctx, deviceID)
+}
+
+func (s *ownerCodeService) GetOrganizationCodeByOrganizationID(ctx context.Context, organizationID string) (*string, error) {
+	return s.getOwnerCodeUseCase.GetOrganizationCodeByOrganizationID(ctx, organizationID)
 }

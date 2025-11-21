@@ -18,6 +18,7 @@ type GenerateOwnerCodeUseCase interface {
 	GenerateUserCode(ctx context.Context, userID string, createdIndex int) (string, error)
 	GenerateChildCode(ctx context.Context, userID string, createdIndex int) (string, error)
 	GenerateDeviceCode(ctx context.Context, deviceID string, createdIndex int) (string, error)
+	GenerateOrganizationCode(ctx context.Context, organizationID string, createdIndex int) (string, error)
 }
 
 type generateOwnerCodeUseCase struct {
@@ -162,5 +163,24 @@ func (s *generateOwnerCodeUseCase) GenerateDeviceCode(ctx context.Context, devic
 	}
 
 	_ = s.profileCachingService.SetDeviceCode(ctx, deviceID, code)
+	return code, nil
+}
+
+func (s *generateOwnerCodeUseCase) GenerateOrganizationCode(ctx context.Context, organizationID string, createdIndex int) (string, error) {
+	code := helper.GenerateOrganizationCode(createdIndex)
+
+	ownerCode := &model.OwnerCode{
+		OwnerID:      organizationID,
+		OwnerRole:    string(constants.OrganizationRole),
+		Code:         code,
+		CreatedIndex: createdIndex,
+	}
+
+	err := s.ownerCodeRepo.Create(ctx, ownerCode)
+	if err != nil {
+		return "", err
+	}
+
+	_ = s.profileCachingService.SetOrganizationCode(ctx, organizationID, code)
 	return code, nil
 }
