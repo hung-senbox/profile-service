@@ -154,8 +154,8 @@ const ProfileCachePrefix = "profile-service:"
 type Gender string
 
 const (
-	GenderMale   Gender = "male"
-	GenderFemale Gender = "female"
+	GenderMale   Gender = "boy"
+	GenderFemale Gender = "girl"
 )
 
 type InformationMode string
