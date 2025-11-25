@@ -9,8 +9,8 @@ import (
 
 type StudentProfileService interface {
 	UploadStudentInfo(ctx context.Context, req request.UploadStudentInfoRequest) error
-	GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
-	GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
+	GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentProfileResponse, error)
+	GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentProfileResponse, error)
 }
 
 type studentProfileService struct {
@@ -25,10 +25,22 @@ func (s *studentProfileService) UploadStudentInfo(ctx context.Context, req reque
 	return s.studentInformationUsecase.UploadStudentInfo(ctx, req)
 }
 
-func (s *studentProfileService) GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
-	return s.studentInformationUsecase.GetStudentInfo4Web(ctx, studentID)
+func (s *studentProfileService) GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentProfileResponse, error) {
+	studentInfo, err := s.studentInformationUsecase.GetStudentInfo4Web(ctx, studentID)
+	if err != nil {
+		return nil, err
+	}
+	return &response.StudentProfileResponse{
+		StudentInformation: *studentInfo,
+	}, nil
 }
 
-func (s *studentProfileService) GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
-	return s.studentInformationUsecase.GetStudentInfo4Gw(ctx, studentID)
+func (s *studentProfileService) GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentProfileResponse, error) {
+	studentInfo, err := s.studentInformationUsecase.GetStudentInfo4Gw(ctx, studentID)
+	if err != nil {
+		return nil, err
+	}
+	return &response.StudentProfileResponse{
+		StudentInformation: *studentInfo,
+	}, nil
 }

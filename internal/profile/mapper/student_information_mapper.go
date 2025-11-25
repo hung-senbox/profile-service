@@ -7,7 +7,6 @@ import (
 
 func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
 	return &response.StudentInformationResponse{
-		StudentID:         studentInfo.StudentID,
 		DOB:               studentInfo.DOB,
 		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,
@@ -19,7 +18,6 @@ func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *re
 
 func ToStudentInformationResponse4Gw(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
 	return &response.StudentInformationResponse{
-		StudentID:         studentInfo.StudentID,
 		DOB:               studentInfo.DOB,
 		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,

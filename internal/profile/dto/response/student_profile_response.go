@@ -2,8 +2,11 @@ package response
 
 import "time"
 
+type StudentProfileResponse struct {
+	StudentInformation StudentInformationResponse `json:"student_information"`
+}
+
 type StudentInformationResponse struct {
-	StudentID         string    `json:"student_id"`
 	DOB               time.Time `json:"dob"`
 	Gender            string    `json:"gender"`
 	StudyLevel        uint      `json:"study_level"`

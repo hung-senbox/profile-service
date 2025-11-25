@@ -27,7 +27,7 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 			studentProfile := profileAdmin.Group("/student")
 			{
 				studentProfile.POST("/info", sh.UploadStudentInfo)
-				studentProfile.GET("/info/:student_id", sh.GetStudentInfo4Web)
+				studentProfile.GET("/:student_id", sh.GetStudentInfo4Web)
 			}
 		}
 	}
