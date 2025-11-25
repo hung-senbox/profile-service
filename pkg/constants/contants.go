@@ -151,11 +151,11 @@ const (
 
 const ProfileCachePrefix = "profile-service:"
 
-type Gender string
+type Gender bool
 
 const (
-	GenderMale   Gender = "boy"
-	GenderFemale Gender = "girl"
+	GenderMale   Gender = true
+	GenderFemale Gender = false
 )
 
 type InformationMode string

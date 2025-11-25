@@ -54,17 +54,21 @@ func (s *studentInformationUsecase) validateStudentInfo(req request.UploadStuden
 	if req.DOB.After(time.Now()) {
 		return errors.New("dob is in the future")
 	}
-	// gender
-	if req.Gender != string(constants.GenderMale) && req.Gender != string(constants.GenderFemale) {
-		return errors.New("gender is invalid")
-	}
-	// mode
-	if req.Mode != string(constants.TeacherMode) && req.Mode != string(constants.ParentMode) && req.Mode != string(constants.StudentMode) && req.Mode != string(constants.ClassroomMode) && req.Mode != string(constants.OrganizationMode) {
-		return errors.New("mode is invalid")
-	}
 	// study level 1 - 10
 	if req.StudyLevel < 1 || req.StudyLevel > 10 {
 		return errors.New("study level is invalid")
+	}
+	// min water must drink tu 1 den 10
+	if req.MinWaterMustDrink == 0 {
+		return errors.New("min water must drink is required")
+	}
+	if req.MinWaterMustDrink > 10 {
+		return errors.New("min water must drink is invalid")
+	}
+
+	// mode
+	if req.Mode != string(constants.TeacherMode) && req.Mode != string(constants.ParentMode) && req.Mode != string(constants.StudentMode) && req.Mode != string(constants.ClassroomMode) && req.Mode != string(constants.OrganizationMode) {
+		return errors.New("mode is invalid")
 	}
 	return nil
 }
