@@ -37,7 +37,7 @@ func (h *StudentProfileHandler) GetStudentInfo4Web(c *gin.Context) {
 		helper.SendError(c, http.StatusBadRequest, nil, helper.ErrInvalidRequest)
 		return
 	}
-	studentInfo, err := h.service.GetStudentInfo4Web(c.Request.Context(), studentID)
+	studentInfo, err := h.service.GetStudentProfile4Web(c.Request.Context(), studentID)
 	if err != nil {
 		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
 		return
@@ -51,7 +51,7 @@ func (h *StudentProfileHandler) GetStudentInfo4Gw(c *gin.Context) {
 		helper.SendError(c, http.StatusBadRequest, nil, helper.ErrInvalidRequest)
 		return
 	}
-	studentInfo, err := h.service.GetStudentInfo4Gw(c.Request.Context(), studentID)
+	studentInfo, err := h.service.GetStudentProfile4Gw(c.Request.Context(), studentID)
 	if err != nil {
 		helper.SendError(c, http.StatusInternalServerError, err, helper.ErrInvalidOperation)
 		return

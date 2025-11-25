@@ -65,7 +65,7 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 			// student profile
 			studentProfile := profilesAdmin.Group("/student")
 			{
-				studentProfile.GET("/info/:student_id", sh.GetStudentInfo4Gw)
+				studentProfile.GET("/:student_id", sh.GetStudentInfo4Gw)
 			}
 		}
 	}

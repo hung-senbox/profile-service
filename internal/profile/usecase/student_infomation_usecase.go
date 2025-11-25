@@ -14,8 +14,8 @@ import (
 
 type StudentInformationUsecase interface {
 	UploadStudentInfo(ctx context.Context, req request.UploadStudentInfoRequest) error
-	GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
-	GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
+	GetStudentProfile4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
+	GetStudentProfile4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error)
 }
 
 type studentInformationUsecase struct {
@@ -69,7 +69,7 @@ func (s *studentInformationUsecase) validateStudentInfo(req request.UploadStuden
 	return nil
 }
 
-func (s *studentInformationUsecase) GetStudentInfo4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
+func (s *studentInformationUsecase) GetStudentProfile4Gw(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
 	studentInfo, err := s.GetStudentInfo(ctx, studentID)
 	if err != nil {
 		return nil, err
@@ -78,7 +78,7 @@ func (s *studentInformationUsecase) GetStudentInfo4Gw(ctx context.Context, stude
 	return mapper.ToStudentInformationResponse4Gw(studentInfo), nil
 }
 
-func (s *studentInformationUsecase) GetStudentInfo4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
+func (s *studentInformationUsecase) GetStudentProfile4Web(ctx context.Context, studentID string) (*response.StudentInformationResponse, error) {
 	studentInfo, err := s.GetStudentInfo(ctx, studentID)
 	if err != nil {
 		return nil, err
