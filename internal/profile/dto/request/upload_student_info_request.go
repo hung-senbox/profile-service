@@ -5,7 +5,7 @@ import "time"
 type UploadStudentInfoRequest struct {
 	StudentID         string    `json:"student_id"`
 	DOB               time.Time `json:"dob"`
-	Gender            bool      `json:"gender"`
+	Gender            uint      `json:"gender"`
 	StudyLevel        uint      `json:"study_level"`
 	MinWaterMustDrink uint      `json:"min_water_must_drink"`
 	Description       string    `json:"description"`
