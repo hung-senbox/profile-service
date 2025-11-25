@@ -55,7 +55,7 @@ func main() {
 		logger.Fatalf("Failed to initialize Redis cache: %v", err)
 	}
 
-	r := router.SetupRouter(consulClient, cacheClientRedis, db.OwnerCodeCollection, db.OrganizationProfileCollection)
+	r := router.SetupRouter(consulClient, cacheClientRedis, db.OwnerCodeCollection, db.OrganizationProfileCollection, db.StudentInformationCollection)
 	port := cfg.Server.Port
 	if err := r.Run(":" + port); err != nil {
 		log.Fatal("Failed to run server:", err)

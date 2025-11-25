@@ -14,6 +14,7 @@ import (
 var MongoClient *mongo.Client
 var OwnerCodeCollection *mongo.Collection
 var OrganizationProfileCollection *mongo.Collection
+var StudentInformationCollection *mongo.Collection
 
 func ConnectMongoDB() {
 	d := config.AppConfig.Database.Mongo
@@ -48,5 +49,6 @@ func ConnectMongoDB() {
 
 	OwnerCodeCollection = MongoClient.Database(d.Name).Collection("owner_code")
 	OrganizationProfileCollection = MongoClient.Database(d.Name).Collection("organization_profile")
-	log.Println("Connected to MongoDB and loaded 'owner_code' and 'organization_profile' collections")
+	StudentInformationCollection = MongoClient.Database(d.Name).Collection("student_information")
+	log.Println("Connected to MongoDB and loaded 'owner_code', 'organization_profile' and 'student_information' collections")
 }

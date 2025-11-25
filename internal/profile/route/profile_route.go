@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *handler.OrganizationProfileHandler, userGw gateway.UserGateway) {
+func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *handler.OrganizationProfileHandler, sh *handler.StudentProfileHandler, userGw gateway.UserGateway) {
 	apiV1 := r.Group("/api/v1")
 
 	adminGroup := apiV1.Group("/admin")
@@ -21,6 +21,13 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 			{
 				organizationProfile.POST("/summary", oh.UploadSummary)
 				organizationProfile.GET("/summary", oh.GetSummary)
+			}
+
+			// student profile
+			studentProfile := profileAdmin.Group("/student")
+			{
+				studentProfile.POST("/info", sh.UploadStudentInfo)
+				studentProfile.GET("/info/:student_id", sh.GetStudentInfo4Web)
 			}
 		}
 	}
@@ -53,6 +60,12 @@ func RegisterProfileRoutes(r *gin.Engine, ho *handler.OwnerCodeHandler, oh *hand
 				ownerCode.GET("/child/:child_id", ho.GetChildCode)
 				ownerCode.GET("/device/:device_id", ho.GetDeviceCode)
 				ownerCode.GET("/organization/:organization_id", ho.GetOrganizationCode)
+			}
+
+			// student profile
+			studentProfile := profilesAdmin.Group("/student")
+			{
+				studentProfile.GET("/info/:student_id", sh.GetStudentInfo4Gw)
 			}
 		}
 	}

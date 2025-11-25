@@ -150,3 +150,20 @@ const (
 )
 
 const ProfileCachePrefix = "profile-service:"
+
+type Gender string
+
+const (
+	GenderMale   Gender = "male"
+	GenderFemale Gender = "female"
+)
+
+type InformationMode string
+
+const (
+	TeacherMode      InformationMode = "T"
+	ParentMode       InformationMode = "P"
+	StudentMode      InformationMode = "S"
+	ClassroomMode    InformationMode = "C"
+	OrganizationMode InformationMode = "O"
+)

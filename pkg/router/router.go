@@ -19,7 +19,7 @@ import (
 	profile_caching_service "github.com/hung-senbox/senbox-cache-service/pkg/cache/caching"
 )
 
-func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.RedisCache, ownerCodeCol, organizationProfileCollection *mongo.Collection) *gin.Engine {
+func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.RedisCache, ownerCodeCol, organizationProfileCollection, studentInformationCollection *mongo.Collection) *gin.Engine {
 	r := gin.Default()
 
 	// Gateway setup
@@ -31,20 +31,24 @@ func SetupRouter(consulClient *api.Client, cacheClientRedis *cache_service.Redis
 	// Repository
 	ownerCodeRepository := repository.NewOwnerCodeRepository(ownerCodeCol)
 	organizationProfileRepository := repository.NewOrganizationProfileRepository(organizationProfileCollection)
+	studentInformationRepository := repository.NewStudentInformationRepository(studentInformationCollection)
 
 	// usecase
 	generateOwnerCodeUseCase := usecase.NewGenerateOwnerCodeUseCase(ownerCodeRepository, cachingProfileService)
 	getOwnerCodeUseCase := usecase.NewGetOwnerCodeUseCase(ownerCodeRepository)
 	organizationProfileUsecase := usecase.NewOrganizationProfileUsecase(organizationProfileRepository)
+	studentInformationUsecase := usecase.NewStudentInformationUsecase(studentInformationRepository)
 	// service
 	ownerCodeService := profile_service.NewOwnerCodeService(ownerCodeRepository, generateOwnerCodeUseCase, getOwnerCodeUseCase)
 	organizationProfileService := profile_service.NewOrganizationProfileService(organizationProfileUsecase)
+	studentProfileService := profile_service.NewStudentProfileService(studentInformationUsecase)
 
 	// handler
 	ownerCodeHandler := handler.NewOwnerCodeHandler(ownerCodeService)
 	organizationProfileHandler := handler.NewOrganizationProfileHandler(organizationProfileService)
+	studentProfileHandler := handler.NewStudentProfileHandler(studentProfileService)
 	// Register routes
-	route.RegisterProfileRoutes(r, ownerCodeHandler, organizationProfileHandler, userGateway)
+	route.RegisterProfileRoutes(r, ownerCodeHandler, organizationProfileHandler, studentProfileHandler, userGateway)
 
 	return r
 }
