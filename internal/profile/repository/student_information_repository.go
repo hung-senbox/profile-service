@@ -7,11 +7,13 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type StudentInformationRepository interface {
 	Create(ctx context.Context, studentInformation *model.StudentInformation) error
 	Update(ctx context.Context, studentInformation *model.StudentInformation) error
+	UploadStudentInfo(ctx context.Context, studentInformation *model.StudentInformation) error
 	GetByStudentID(ctx context.Context, studentID string) (*model.StudentInformation, error)
 }
 
@@ -55,4 +57,13 @@ func (r *studentInformationRepository) GetByStudentID(ctx context.Context, stude
 		return nil, err
 	}
 	return &studentInformation, nil
+}
+
+func (r *studentInformationRepository) UploadStudentInfo(ctx context.Context, studentInformation *model.StudentInformation) error {
+	filter := bson.M{"student_id": studentInformation.StudentID}
+	update := bson.M{
+		"$set": studentInformation,
+	}
+	_, err := r.collection.UpdateOne(ctx, filter, update, options.Update().SetUpsert(true))
+	return err
 }

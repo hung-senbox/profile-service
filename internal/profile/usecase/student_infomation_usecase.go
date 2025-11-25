@@ -41,7 +41,7 @@ func (s *studentInformationUsecase) UploadStudentInfo(ctx context.Context, req r
 		Description:       req.Description,
 		Mode:              req.Mode,
 	}
-	return s.studentInformationRepository.Create(ctx, studentInformation)
+	return s.studentInformationRepository.UploadStudentInfo(ctx, studentInformation)
 }
 
 func (s *studentInformationUsecase) GetStudentInfo(ctx context.Context, studentID string) (*model.StudentInformation, error) {
