@@ -6,13 +6,9 @@ import (
 )
 
 func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
-	gender := "boy"
-	if studentInfo.Gender {
-		gender = "girl"
-	}
 	return &response.StudentInformationResponse{
 		DOB:               studentInfo.DOB,
-		Gender:            gender,
+		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,
 		MinWaterMustDrink: studentInfo.MinWaterMustDrink,
 		Description:       studentInfo.Description,
@@ -21,13 +17,9 @@ func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *re
 }
 
 func ToStudentInformationResponse4Gw(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
-	gender := "boy"
-	if studentInfo.Gender {
-		gender = "girl"
-	}
 	return &response.StudentInformationResponse{
 		DOB:               studentInfo.DOB,
-		Gender:            gender,
+		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,
 		MinWaterMustDrink: studentInfo.MinWaterMustDrink,
 		Description:       studentInfo.Description,
