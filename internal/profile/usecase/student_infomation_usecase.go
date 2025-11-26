@@ -57,22 +57,28 @@ func (s *studentInformationUsecase) GetStudentInfo(ctx context.Context, studentI
 func (s *studentInformationUsecase) validateStudentInfo(req request.UploadStudentInfoRequest) error {
 	// validate request
 	// dob - parse and check if in future
-	dob, err := time.Parse("2006-01-02", req.DOB)
-	if err != nil {
-		return errors.New("invalid date format, expected yyyy-mm-dd")
-	}
-	if dob.After(time.Now()) {
-		return errors.New("dob is in the future")
+	if req.DOB != "" {
+		dob, err := time.Parse("2006-01-02", req.DOB)
+		if err != nil {
+			return errors.New("invalid date format, expected yyyy-mm-dd")
+		}
+		if dob.After(time.Now()) {
+			return errors.New("dob is in the future")
+		}
 	}
 
 	// study level 1 - 10
-	if req.StudyLevel < 1 || req.StudyLevel > 10 {
-		return errors.New("study level is invalid")
+	if req.StudyLevel != 0 {
+		if req.StudyLevel < 1 || req.StudyLevel > 10 {
+			return errors.New("study level is invalid")
+		}
 	}
 
 	// mode
-	if req.Mode != string(constants.TeacherMode) && req.Mode != string(constants.ParentMode) && req.Mode != string(constants.StudentMode) && req.Mode != string(constants.ClassroomMode) && req.Mode != string(constants.OrganizationMode) {
-		return errors.New("mode is invalid")
+	if req.Mode != "" {
+		if req.Mode != string(constants.TeacherMode) && req.Mode != string(constants.ParentMode) && req.Mode != string(constants.StudentMode) && req.Mode != string(constants.ClassroomMode) && req.Mode != string(constants.OrganizationMode) {
+			return errors.New("mode is invalid")
+		}
 	}
 	return nil
 }
