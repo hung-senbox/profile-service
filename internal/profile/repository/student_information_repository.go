@@ -61,8 +61,21 @@ func (r *studentInformationRepository) GetByStudentID(ctx context.Context, stude
 
 func (r *studentInformationRepository) UploadStudentInfo(ctx context.Context, studentInformation *model.StudentInformation) error {
 	filter := bson.M{"student_id": studentInformation.StudentID}
+
+	// Prepare update with $set for all fields and $setOnInsert for ID
 	update := bson.M{
-		"$set": studentInformation,
+		"$set": bson.M{
+			"student_id":           studentInformation.StudentID,
+			"dob":                  studentInformation.DOB,
+			"gender":               studentInformation.Gender,
+			"study_level":          studentInformation.StudyLevel,
+			"min_water_must_drink": studentInformation.MinWaterMustDrink,
+			"description":          studentInformation.Description,
+			"mode":                 studentInformation.Mode,
+		},
+		"$setOnInsert": bson.M{
+			"_id": primitive.NewObjectID(),
+		},
 	}
 	_, err := r.collection.UpdateOne(ctx, filter, update, options.Update().SetUpsert(true))
 	return err
