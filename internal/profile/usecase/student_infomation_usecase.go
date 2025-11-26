@@ -32,9 +32,15 @@ func (s *studentInformationUsecase) UploadStudentInfo(ctx context.Context, req r
 		return err
 	}
 
+	// Parse DOB from string (yyyy-mm-dd) to time.Time
+	dob, err := time.Parse("2006-01-02", req.DOB)
+	if err != nil {
+		return errors.New("invalid date format, expected yyyy-mm-dd")
+	}
+
 	studentInformation := &model.StudentInformation{
 		StudentID:         req.StudentID,
-		DOB:               req.DOB,
+		DOB:               dob,
 		Gender:            req.Gender,
 		StudyLevel:        req.StudyLevel,
 		MinWaterMustDrink: req.MinWaterMustDrink,
@@ -50,10 +56,15 @@ func (s *studentInformationUsecase) GetStudentInfo(ctx context.Context, studentI
 
 func (s *studentInformationUsecase) validateStudentInfo(req request.UploadStudentInfoRequest) error {
 	// validate request
-	// dob
-	if req.DOB.After(time.Now()) {
+	// dob - parse and check if in future
+	dob, err := time.Parse("2006-01-02", req.DOB)
+	if err != nil {
+		return errors.New("invalid date format, expected yyyy-mm-dd")
+	}
+	if dob.After(time.Now()) {
 		return errors.New("dob is in the future")
 	}
+
 	// study level 1 - 10
 	if req.StudyLevel < 1 || req.StudyLevel > 10 {
 		return errors.New("study level is invalid")
