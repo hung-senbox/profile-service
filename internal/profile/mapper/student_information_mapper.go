@@ -6,8 +6,13 @@ import (
 )
 
 func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
+	var dobStr *string
+	if studentInfo.DOB != nil {
+		formatted := studentInfo.DOB.Format("2006-01-02")
+		dobStr = &formatted
+	}
 	return &response.StudentInformationResponse{
-		DOB:               studentInfo.DOB.Format("2006-01-02"),
+		DOB:               dobStr,
 		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,
 		MinWaterMustDrink: studentInfo.MinWaterMustDrink,
@@ -17,8 +22,13 @@ func ToStudentInformationResponse4Web(studentInfo *model.StudentInformation) *re
 }
 
 func ToStudentInformationResponse4Gw(studentInfo *model.StudentInformation) *response.StudentInformationResponse {
+	var dobStr *string
+	if studentInfo.DOB != nil {
+		formatted := studentInfo.DOB.Format("2006-01-02")
+		dobStr = &formatted
+	}
 	return &response.StudentInformationResponse{
-		DOB:               studentInfo.DOB.Format("2006-01-02"),
+		DOB:               dobStr,
 		Gender:            studentInfo.Gender,
 		StudyLevel:        studentInfo.StudyLevel,
 		MinWaterMustDrink: studentInfo.MinWaterMustDrink,

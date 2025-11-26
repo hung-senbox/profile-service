@@ -33,9 +33,13 @@ func (s *studentInformationUsecase) UploadStudentInfo(ctx context.Context, req r
 	}
 
 	// Parse DOB from string (yyyy-mm-dd) to time.Time
-	dob, err := time.Parse("2006-01-02", req.DOB)
-	if err != nil {
-		return errors.New("invalid date format, expected yyyy-mm-dd")
+	var dob *time.Time
+	if req.DOB != "" {
+		parsedDob, err := time.Parse("2006-01-02", req.DOB)
+		if err != nil {
+			return errors.New("invalid date format, expected yyyy-mm-dd")
+		}
+		dob = &parsedDob
 	}
 
 	studentInformation := &model.StudentInformation{
